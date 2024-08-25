@@ -52,8 +52,8 @@ dag = DAG(
     'khorev_test',
     default_args=default_args,
     description='A simple DAG',
-    schedule_interval=timedelta(days=1),
-    #shedule_interval = '44 11 * * *',   
+    #schedule_interval=timedelta(days=1),
+    shedule_interval = '5 4 * * *',   
 )
 #
 def print_hello():
