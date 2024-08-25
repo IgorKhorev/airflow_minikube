@@ -7,7 +7,7 @@ from airflow.operators.python_operator import PythonOperator
 #
        
 #
-defualt_args = {
+default_args = {
 'owner': 'airflow',
 'depends_on_past': False,
 'email_on_failure': False,
@@ -25,6 +25,8 @@ shedule_interval = timedelta(days = 1),
 #shedule_interval = '44 11 * * *',
 cachup=False,
 )
+#
+
 def print_hello():
     print("Hello, world")
     # Генерируем треугольник Паскаля с 10 уровнями
