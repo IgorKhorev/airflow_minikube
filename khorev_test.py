@@ -21,7 +21,7 @@ dag = DAG(
 'khorev_test',
 default_args=default_args,
 description='A simple DAG to send an email',
-shedule_interval = timedelta(days = 1),
+shedule_interval=timedelta(days = 1),
 cachup=False,
 )
 #
