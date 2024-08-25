@@ -17,7 +17,6 @@ def generate_pascals_triangle(levels):
 
     return triangle
 
-
 def print_pascals_triangle(triangle):
     max_width = len('   '.join(map(str, triangle[-1])))  # находим максимальную ширину строки
     for row in triangle:
