@@ -57,11 +57,11 @@ dag = DAG(
 )
 #
 def print_hello():
-    print("Hello, world")
+    #print("Hello, world")
     # Генерируем треугольник Паскаля с 10 уровнями
-    #triangle = generate_pascals_triangle(10)
+    triangle = generate_pascals_triangle(10)
     # Печатаем треугольник Паскаля
-    #print_pascals_triangle(triangle)
+    print_pascals_triangle(triangle)
        
 python_task = PythonOperator(
    task_id = 'print_hello',
