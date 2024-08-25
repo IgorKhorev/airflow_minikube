@@ -5,28 +5,7 @@ from airflow.operators.dummy_operator import DummyOperotor
 from airflow.operators.bash_operator import BashOperotor
 from airflow.operators.python_operator import PythonOperotor
 #
-def generate_pascals_triangle(levels):
-    # Начинаем с первого уровня треугольника
-    triangle = [[1]]
-    
-    # Строим треугольник уровень за уровнем
-    for i in range(1, levels):
-        row = [1]  # каждый уровень начинается с 1
-        for j in range(1, i):
-            # Каждый элемент в строке является суммой двух элементов сверху
-            row.append(triangle[i-1][j-1] + triangle[i-1][j])
-        row.append(1)  # каждый уровень заканчивается на 1
-        triangle.append(row)
-    
-    return triangle
-
-def print_pascals_triangle(triangle):
-    max_width = len('   '.join(map(str, triangle[-1])))  # находим максимальную ширину строки
-    for row in triangle:
-        # Преобразуем все элементы строки в строковые представления и объединяем их через пробелы
-        row_str = '   '.join(map(str, row))
-        # Центрируем строку согласно максимальной ширине треугольника
-        print(row_str.center(max_width))
+       
 #
 defualt_args = {
 'owner': 'airflow'
@@ -42,8 +21,8 @@ dag = DAG(
 'khorev_test',
 default_args=default_args,
 description='A simple DAG to send an email',
-#shedule_interval = timedelta(days = 1),
-shedule_interval = '44 11 * * *',
+shedule_interval = timedelta(days = 1),
+#shedule_interval = '44 11 * * *',
 cachup=False,
 )
 
