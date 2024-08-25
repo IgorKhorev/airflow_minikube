@@ -27,17 +27,17 @@ cachup=False,
 )
 
 start = DummyOperator(
-   task_id = 'start'
+   task_id = 'start',
    dag=dag,
 )
 
 end = DummyOperator(
-   task_id = 'end'
+   task_id = 'end',
    dag = dag,
 )
 
 bash_task = BashOperator(
-   task_id = 'print_date'
+   task_id = 'print_date',
    bash_command = 'date'
    dag = dag,
 )
@@ -50,7 +50,7 @@ def print_hello():
     #print_pascals_triangle(triangle)
        
 python_task = PythonOperator(
-   task_id = 'print_hello'
+   task_id = 'print_hello',
    python_callable = print_hello,
    dag = dag,
 )
