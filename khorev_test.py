@@ -60,7 +60,7 @@ dag = DAG(
     default_args=default_args,
     description='A simple DAG for course',
     schedule_interval='44 11 * * *',  # CRON выражение для запуска в 11:44 каждую день
-    start_date=datetime(2024, 08, 25),  # Поменяйте на текущую дату запуска DAG
+    start_date=datetime(2024, 25, 8),  # Поменяйте на текущую дату запуска DAG
     catchup=False,
 )
 
