@@ -1,8 +1,5 @@
 from airflow import DAG
-from airflow.operators.email_operator import EmailOperator
 from datetime import datetime, timedelta
-from airflow.operators.dummy_operator import DummyOperotor
-from airflow.operators.bash_operator import BashOperotor
 from airflow.operators.python_operator import PythonOperotor
 #
        
@@ -25,23 +22,6 @@ shedule_interval = timedelta(days = 1),
 #shedule_interval = '44 11 * * *',
 cachup=False,
 )
-
-start = DummyOperator(
-   task_id = 'start',
-   dag=dag,
-)
-
-end = DummyOperator(
-   task_id = 'end',
-   dag = dag,
-)
-
-bash_task = BashOperator(
-   task_id = 'print_date',
-   bash_command = 'date',
-   dag = dag,
-)
-
 def print_hello():
     print("Hello, world")
     # Генерируем треугольник Паскаля с 10 уровнями
@@ -55,4 +35,4 @@ python_task = PythonOperator(
    dag = dag,
 )
 
-start >> bash_task >> python_task >> end
+ python_task
