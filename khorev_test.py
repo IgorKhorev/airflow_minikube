@@ -48,13 +48,22 @@ default_args = {
 #)
 #
 # Определение DAG
+#dag = DAG(
+#    'khorev_test',
+#    default_args=default_args,
+#    description='A simple DAG',
+#    schedule_interval=timedelta(days=1),
+#    #shedule_interval = '5 7 * * *',   
+#)
 dag = DAG(
     'khorev_test',
     default_args=default_args,
-    description='A simple DAG',
-    schedule_interval=timedelta(days=1),
-    #shedule_interval = '5 7 * * *',   
+    description='A simple DAG for course',
+    schedule_interval='44 11 * * *',  # CRON выражение для запуска в 11:44 каждую день
+    start_date=datetime(2024, 08, 25),  # Поменяйте на текущую дату запуска DAG
+    catchup=False,
 )
+
 #
 def print_hello():
     #print("Hello, world")
