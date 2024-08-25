@@ -1,6 +1,9 @@
 from airflow import DAG
+from airflow.operators.email_operator import EmailOperator
 from datetime import datetime, timedelta
-from airflow.operators.python_operator import PythonOperotor
+from airflow.operators.dummy_operator import DummyOperator
+from airflow.operators.bash_operator import BashOperator
+from airflow.operators.python_operator import PythonOperator
 #
        
 #
