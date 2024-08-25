@@ -17,14 +17,20 @@ default_args = {
 'start_date': datetime(2024,8,25),
 }
 
-dag = DAG(
-'khorev_test',
-default_args=default_args,
-description='A simple DAG to send an email',
-shedule_interval=timedelta(days = 1),
-)
+#dag = DAG(
+#'khorev_test',
+#default_args=default_args,
+#description='A simple DAG to send an email',
+#shedule_interval=timedelta(days = 1),
+#)
 #
-
+# Определение DAG
+dag = DAG(
+    'khorev_test',
+    default_args=default_args,
+    description='A simple DAG',
+    schedule_interval=timedelta(days=1),
+)
 #
 def print_hello():
     print("Hello, world")
