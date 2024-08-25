@@ -22,10 +22,11 @@ dag = DAG(
 default_args=default_args,
 description='A simple DAG to send an email',
 shedule_interval=timedelta(days = 1),
-cachup=False,
+catchup=False,
 )
 #
 
+#
 def print_hello():
     print("Hello, world")
     # Генерируем треугольник Паскаля с 10 уровнями
