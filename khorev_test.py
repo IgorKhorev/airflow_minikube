@@ -30,7 +30,7 @@ dag = DAG(
     default_args=default_args,
     description='A simple DAG',
     schedule_interval=timedelta(days=1),
-    shedule_interval = '44 11 * * *',   
+    #shedule_interval = '44 11 * * *',   
 )
 #
 def print_hello():
