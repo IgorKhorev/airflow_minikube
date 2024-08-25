@@ -5,7 +5,28 @@ from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator
 #
-       
+ def generate_pascals_triangle(levels):
+    # Начинаем с первого уровня треугольника
+    triangle = [[1]]
+    
+    # Строим треугольник уровень за уровнем
+    for i in range(1, levels):
+        row = [1]  # каждый уровень начинается с 1
+        for j in range(1, i):
+            # Каждый элемент в строке является суммой двух элементов сверху
+            row.append(triangle[i-1][j-1] + triangle[i-1][j])
+        row.append(1)  # каждый уровень заканчивается на 1
+        triangle.append(row)
+    
+    return triangle
+
+def print_pascals_triangle(triangle):
+    max_width = len('   '.join(map(str, triangle[-1])))  # находим максимальную ширину строки
+    for row in triangle:
+        # Преобразуем все элементы строки в строковые представления и объединяем их через пробелы
+        row_str = '   '.join(map(str, row))
+        # Центрируем строку согласно максимальной ширине треугольника
+        print(row_str.center(max_width))      
 #
 default_args = {
 'owner': 'airflow',
