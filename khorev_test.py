@@ -47,14 +47,6 @@ shedule_interval = '44 11 * * *',
 cachup=False,
 )
 
-send_email = EmailOperator(
-task_id='send_email',
-to='ivx91@yandex.ru',
-subject='Test Email from Airflow',
-html_content= '<h3>Hello Igor!</h3><p>This is a test email sent from Apach Airwlow.</p>'
-dag-dag,
-)
-
 start = DummyOperator(
    task_id = 'start'
    dag=dag,
@@ -72,11 +64,11 @@ bash_task = BashOperator(
 )
 
 def print_hello():
-    #print("Hello, world")
+    print("Hello, world")
     # Генерируем треугольник Паскаля с 10 уровнями
-    triangle = generate_pascals_triangle(10)
+    #triangle = generate_pascals_triangle(10)
     # Печатаем треугольник Паскаля
-    print_pascals_triangle(triangle)
+    #print_pascals_triangle(triangle)
        
 python_task = PythonOperator(
    task_id = 'print_hello'
